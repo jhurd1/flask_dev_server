@@ -1,5 +1,5 @@
 from flask import Flask, jsonify, render_template
-from flask import CORS, cross_origin
+import flask
 
 app = Flask(
  __name__,
@@ -7,10 +7,15 @@ app = Flask(
  static_folder="./static",
 )
 
+#@app.route("/")
+#def hello_world():
+#    return render_template('index.html')
+
 @app.route("/")
-@cross_origin()
-def hello_world():
-    return render_template('index.html')
+def home():
+    resp = flask.Response("Well duh")
+    resp.headers['Access-Control-Allow-Origin'] = '*'
+    return resp
 
 @app.route("/json")
 def json_response():
