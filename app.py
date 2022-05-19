@@ -1,4 +1,5 @@
 from flask import Flask, jsonify, render_template
+from flask import CORS, cross_origin
 
 app = Flask(
  __name__,
@@ -7,6 +8,7 @@ app = Flask(
 )
 
 @app.route("/")
+@cross_origin()
 def hello_world():
     return render_template('index.html')
 
