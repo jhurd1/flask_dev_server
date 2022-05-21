@@ -1,4 +1,5 @@
-from flask import Flask, jsonify, render_template
+from flask import Flask, jsonify
+from flask_cors import CORS, cross_origin
 import flask
 
 app = Flask(
